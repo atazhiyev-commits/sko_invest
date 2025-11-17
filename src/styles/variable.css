@@ -10,14 +10,24 @@
   --title-weight: 700;
 }
 
-.title-section{
-    font-size: var(--title-size);
-    font-weight: var(--title-weight);
-    color: var(--color-black);
+.title-section {
+  font-size: var(--title-size);
+  font-weight: var(--title-weight);
+  color: var(--color-black);
 }
 
-.header-item{
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--color-white);
+.header-item {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-white);
+}
+
+.btn-section {
+  background-color: var(--color-darkBlue);
+  padding: 9px;
+  color: var(--color-white);
+  font-weight: 500;
+  font-size: 13px;
+
+  border-radius: 5px;
 }

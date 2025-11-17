@@ -1,12 +1,13 @@
 import { BrowserRouter } from "react-router";
 
+import Layouts from "./../layouts";
+
 import "./../styles/global.css"
-import Header from "../layouts/header";
 
 const App = () => {
   return (
     <BrowserRouter>
-      <Header />
+      <Layouts />
     </BrowserRouter>
   );
 };
