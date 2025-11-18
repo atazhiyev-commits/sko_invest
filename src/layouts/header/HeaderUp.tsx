@@ -18,13 +18,15 @@ const HeaderUp = () => {
           />
         </div>
 
-        <nav className="header__nav">
-            <Menu className='header__nav-burger' size={32}/>
-            <ul className="header__nav-menuList">
+        <div className="header__menu">
+            <ul className="header__menu-menuList">
                 <li className="item-li header-item"><a className="item_link" href="#">Как мы помогаем</a></li>
                 <li className="item-li header-item"><a className="item_link" href="#">Защита инвесторов</a></li>
                 <li className="item-li header-item"><a className="item_link" href="#">Контакты</a></li>
             </ul>
+        </div>
+        <nav className="header__nav">
+        <Menu className='header__nav-burger' size={32}/>
             <ul className="header__nav-socMedia">
                 <li className="socItem"><a className="soc_link" href="https://www.facebook.com/rsk.sko/"><FacebookIcon className='iconMedia' size={20} /></a></li>
                 <li className="socItem"><a className="soc_link" href="https://www.instagram.com/sko_kz/"><Instagram className='iconMedia' size={20} /></a></li>

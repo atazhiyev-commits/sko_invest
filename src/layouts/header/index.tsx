@@ -2,9 +2,9 @@ import clsx from "clsx";
 
 import HeaderUp from "./HeaderUp";
 import HeaderDown from "./HeaderDown";
+import Container from "../../components/container/Container";
 
 import "./header.scss";
-import Container from "../../components/container/Container";
 
 interface HeaderProps {
   className?: string;

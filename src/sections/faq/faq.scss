@@ -3,5 +3,11 @@
 
   &__content {
     margin-top: 25px;
+
+    .accordion {
+
+      border: none;
+      box-shadow: none;
+    }
   }
 }
