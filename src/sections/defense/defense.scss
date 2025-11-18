@@ -1,0 +1,12 @@
+.defense{
+    padding-block: 50px;
+
+    &__header{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__content{
+        margin-top: 40px;
+    }
+}

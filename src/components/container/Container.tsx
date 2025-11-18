@@ -1,6 +1,7 @@
-import clsx from "clsx";
-import "./container.scss";
 import { type FC, type ReactNode } from "react";
+import clsx from "clsx";
+
+import "./container.scss";
 
 interface props {
   children: ReactNode;

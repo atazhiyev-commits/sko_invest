@@ -1,7 +1,6 @@
-import Container from '../../components/container/Container';
 import { Link } from "react-router";
 
-import { ChevronDown, Eye, FacebookIcon, Instagram, Menu, Send } from "lucide-react";
+import {  Eye, FacebookIcon, Instagram, Menu, Send } from "lucide-react";
 import logo from "./../../assets/images/logo/logo.svg"
 
 import './header.scss';
@@ -22,7 +21,6 @@ const HeaderUp = () => {
         <nav className="header__nav">
             <Menu className='header__nav-burger' size={32}/>
             <ul className="header__nav-menuList">
-                <li className="item-li header-item"><a className="item_link" href="#">Я хочу <ChevronDown className='chevronDown' /></a></li>
                 <li className="item-li header-item"><a className="item_link" href="#">Как мы помогаем</a></li>
                 <li className="item-li header-item"><a className="item_link" href="#">Защита инвесторов</a></li>
                 <li className="item-li header-item"><a className="item_link" href="#">Контакты</a></li>

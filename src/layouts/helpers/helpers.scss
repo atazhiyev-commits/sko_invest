@@ -1,0 +1,29 @@
+.helper{
+    background-color: #F2F8FD;
+    padding-block: 90px;
+
+    &__content{
+        height: 415px;
+        margin-top: 35px;
+        display: flex;
+        justify-content: space-between;
+
+        &-list{
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+
+            height: 100%;
+            padding-right: 5px;
+            overflow-y: scroll;
+        }
+
+        &-info{
+            max-width: 585px;
+
+            .descInfo{
+                margin-top: 25px;
+            }
+        }
+    }
+}

@@ -39,8 +39,4 @@ select {
   border: none;
   color: var(--color-white);
   cursor: pointer;
-
-  option {
-    border: none;  
-  }
 }
