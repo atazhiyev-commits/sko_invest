@@ -36,6 +36,12 @@
       align-items: center;
       text-align: center;
 
+      a {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+
       * {
         transition: all 0.3s ease;
       }
@@ -130,7 +136,6 @@
       }
 
       .language {
-
         option {
           cursor: pointer;
           color: var(--color-black);
