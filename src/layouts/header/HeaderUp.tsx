@@ -7,10 +7,14 @@ import logo from "./../../assets/images/logo/logo.svg";
 import { useLG } from "../../app/lg";
 
 import "./header.scss";
+import { useA11yStore } from "../../app/a11";
 
 const HeaderUp = () => {
   const { t } = useTranslation();
   const lang = useLG.lang;
+
+  const toggle = useA11yStore((s) => s.toggleA11yMode);
+  const a11yMode = useA11yStore((s) => s.a11yMode);
 
   return (
     <div className="header__UP">
@@ -64,7 +68,7 @@ const HeaderUp = () => {
           </li>
         </ul>
         <ul className="header__nav-global_setting">
-          <button className="eyes">
+          <button className="eyes" onClick={toggle}>
             <Eye size={24} />
           </button>
           <LanguageSwitcher />

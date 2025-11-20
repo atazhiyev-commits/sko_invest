@@ -40,3 +40,25 @@ select {
   color: var(--color-white);
   cursor: pointer;
 }
+
+
+body.a11y-mode {
+  font-size: 20px;
+  line-height: 1.6;
+  background: #000 !important;
+  color: #fff !important;
+}
+
+body.a11y-mode a {
+  color: #ff0 !important;
+  text-decoration: underline;
+}
+
+body.a11y-mode button {
+  background: #ff0 !important;
+  color: #000 !important;
+}
+
+body.a11y-mode img {
+  opacity: 0.9;
+}
