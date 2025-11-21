@@ -20,6 +20,7 @@ interface Props {
 
 const Catalog: FC<Props> = ({ pageName, className }) => {
   const { t } = useTranslation();
+  
 
   const nameBottom = t("header.headerBottom", {
     returnObjects: true,
@@ -47,7 +48,7 @@ const Catalog: FC<Props> = ({ pageName, className }) => {
         <div className="catalog__content">
           <aside className="catalog__content-aside">
             {nameBottom.map((item, index) => (
-             
+             <ButtonAside key={index} name={item.label} />
             ))}
           </aside>
           <div className="catalog__content-info">

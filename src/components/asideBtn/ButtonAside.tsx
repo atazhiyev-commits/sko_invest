@@ -1,6 +1,6 @@
 import { useState, type FC } from "react";
 import clsx from "clsx";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { ChevronDown } from "lucide-react";
 
 import Accordion from "@mui/material/Accordion";
@@ -12,45 +12,35 @@ import "./buttonAside.scss";
 
 interface Props {
   name: string;
-  activeLink?: string;
+  activeLink: string;
   children?: React.ReactNode;
   className?: string;
 }
 
 const ButtonAside: FC<Props> = ({ name, activeLink, className }) => {
-  const [expanded, setExpanded] = useState<string | false>(false);
+  const location = useLocation().pathname;
+  const navigate = useNavigate();
 
-  const handleChange =
-    (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
-      setExpanded(isExpanded ? panel : false);
-    };
+  const lastSegment = location.split("/").filter(Boolean).at(-1);
+
+
+
   return (
-    <Accordion
-      className="accordion"
-      expanded={expanded === activeLink}
-      onChange={handleChange(activeLink)}
+    <Link
+      to={location + activeLink}
+      onClick={(e) => {
+        if (lastSegment) {
+          e.preventDefault();
+          navigate(0);
+        }
+      }}
+      className={clsx("buttonAside", className)}
     >
-      <AccordionSummary
-        className="accordionSummary"
-        expandIcon={<ChevronDown />}
-      >
-        <Typography>{name}</Typography>
-      </AccordionSummary>
-      <AccordionDetails>
-        <Typography>
-          {item.list?.map((path: string, key: number) => (
-            <ButtonAside key={key} name={path.name} />
-          ))}
-        </Typography>
-      </AccordionDetails>
-    </Accordion>
+      <span className="buttonAside__name">
+        {name} <ChevronDown size={16} className="chevron" />
+      </span>
+    </Link>
   );
 };
 
 export default ButtonAside;
-
-// <Link to={":lang/catalog/"} className={clsx("buttonAside", className)}>
-//   <span className="buttonAside__name">
-//     {name} <ChevronDown size={16} className="chevron" />
-//   </span>
-// </Link>
