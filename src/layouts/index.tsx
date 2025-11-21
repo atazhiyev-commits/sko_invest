@@ -13,7 +13,6 @@ import "./layouts.scss";
 const Layouts = () => {
   return (
     <div className="layouts">
-      <main className="main">
         <Hero />
         <News />
         <Helper />
@@ -21,7 +20,6 @@ const Layouts = () => {
         <Defense />
 
         <Catalog />
-      </main>
     </div>
   );
 };
