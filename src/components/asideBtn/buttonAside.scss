@@ -1,85 +1,111 @@
-.btnaside[data-active="true"] {
-  .second {
-    visibility: visible;
-    height: 150px;
-
-    .three {
-      height: 55px;
-    }
+/* === ГЛАВНАЯ МАГИЯ АНИМАЦИИ (GRID) === */
+.collapse-wrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease-out;
+  
+  /* Когда открыто - даем 1 фракцию (полная высота) */
+  &[data-open="true"] {
+    grid-template-rows: 1fr;
   }
 
-  [data-active="true"] {
-    .buttonAside__name {
+  /* Скрываем переполнение у непосредственного ребенка (ul) */
+  > ul {
+    overflow: hidden;
+    min-height: 0;
+  }
+}
+
+/* === СТИЛИ КОМПОНЕНТА === */
+.btnaside {
+  width: 100%;
+  
+  /* Главная кнопка */
+  .buttonAside {
+    display: flex;
+    align-items: center;
+    height: 64px;
+    width: 100%;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover .buttonAside__name {
+      color: #3b82f6; // Пример цвета (var(--color-lightBlue))
+    }
+
+    &__name {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: 0 22px;
+      font-weight: 500;
+      font-size: 18px;
+      color: #000;
+      transition: 0.2s;
+
       .chevron {
-        transform: rotate(180deg);
+        transition: transform 0.3s;
       }
     }
   }
 
-  .second__li[data-active-second="true"] {
-    .three {
-      height: 55px;
-    }
+  /* Поворот главной стрелки при открытии */
+  &[data-active="true"] .buttonAside .chevron {
+    transform: rotate(180deg);
   }
-}
 
-.btnaside {
+  /* Стили списка 2-го уровня */
   .second {
-    position: relative;
-    transition: 0.3s;
-    visibility: hidden;
-    z-index: 2;
-    background: #fff;
-    overflow: hidden;
+    background: #f9f9f9; // Чуть серый фон
+    list-style: none;
+    padding: 0;
+    margin: 0;
 
     .second__li {
-      position: relative;
-      z-index: 1;
-      padding-inline: 22px;
-      background: #fff;
+      /* Заголовок пункта */
+      .item-header {
+        padding: 12px 22px;
+        font-size: 16px;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+        &:hover {
+          background-color: #eee;
+        }
 
-      .three {
-        background-color: gray;
-        height: 0;
-        transition: 0.3s;
-
-        .three__li {
-          position: relative;
-          z-index: 1;
-          padding-inline: 22px;
+        .chevron-small {
+          transition: transform 0.3s;
+          &.rotated {
+             transform: rotate(180deg);
+          }
         }
       }
     }
-    height: 0;
-  }
-}
-
-.buttonAside {
-  height: 64px;
-  width: 100%;
-
-  &:hover {
-    .buttonAside__name {
-      color: var(--color-lightBlue);
-    }
   }
 
-  &__name {
-    display: flex;
-    justify-content: space-between;
-    gap: 25px;
-    padding-block: 22px;
-    padding-inline: 22px;
+  /* Стили списка 3-го уровня */
+  .three {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background: #e5e5e5; // Еще темнее фон для вложенности
 
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 17px;
-    color: #000;
+    .three__li {
+      a {
+        display: block;
+        padding: 10px 22px 10px 40px; // Больше отступ слева
+        text-decoration: none;
+        color: #333;
+        font-size: 14px;
 
-    transition: 0.2s;
-
-    .chevron {
-      transition: 0.3s;
+        &:hover {
+          color: #000;
+          background: rgba(0,0,0,0.05);
+        }
+      }
     }
   }
 }

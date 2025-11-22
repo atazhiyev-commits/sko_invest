@@ -1,78 +1,102 @@
 import { useState, type FC } from "react";
 import clsx from "clsx";
-import { Link, useLocation, useNavigate } from "react-router";
+import { Link, useLocation } from "react-router-dom"; // Проверьте, возможно у вас 'react-router'
 import { ChevronDown } from "lucide-react";
 
-import Accordion from "@mui/material/Accordion";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import Typography from "@mui/material/Typography";
-
 import "./buttonAside.scss";
+
+interface SubItem {
+  name: string;
+  link?: string;
+}
+
+interface ListItem {
+  name: string;
+  link: string;
+  list?: SubItem[];
+}
 
 interface Props {
   name: string;
   activeLink: string;
-  list?: Array<any>;
-  children?: React.ReactNode;
+  list?: ListItem[];
   className?: string;
 }
 
 const ButtonAside: FC<Props> = ({ name, list, activeLink, className }) => {
   const [active, setActive] = useState(false);
-  const [secondActive, setSecondActive] = useState<number>();
+  const [secondActive, setSecondActive] = useState<number | null>(null);
   const location = useLocation().pathname;
-  const navigate = useNavigate();
 
-  const lastSegment = location.split("/").filter(Boolean).at(-1);
+  // Логика переключения второго уровня (чтобы можно было и открыть, и закрыть)
+  const toggleSecondLevel = (index: number) => {
+    setSecondActive(secondActive === index ? null : index);
+  };
 
   return (
     <div className="btnaside" data-active={active}>
+      {/* 1. ГЛАВНАЯ КНОПКА (ТРИГГЕР) */}
       <Link
-        to={location + activeLink}
+        to={activeLink}
+        className={clsx("buttonAside", className)}
         onClick={(e) => {
-          if (lastSegment) {
+          // Если есть выпадающий список, мы не переходим по ссылке, а открываем меню
+          if (list && list.length > 0) {
             e.preventDefault();
             setActive(!active);
           }
         }}
-        className={clsx("buttonAside", className)}
       >
         <span className="buttonAside__name">
-          {name} <ChevronDown size={16} className="chevron" />
+          {name}
+          {/* Показываем стрелку только если есть список */}
+          {list && list.length > 0 && (
+            <ChevronDown size={16} className="chevron" />
+          )}
         </span>
       </Link>
-      <ul className="second">
-        {list?.map(
-          (
-            item: { name: string; link: string; list?: Array<any> },
-            index: number
-          ) => (
-            <li
-              key={index}
-              className="second__li"
-              data-active-second={secondActive === index}
-              onClick={() => setSecondActive(index)}
-            >
-              {item.name}
+
+      {/* 2. ГЛАВНЫЙ ВЫПАДАЮЩИЙ БЛОК (Level 1) */}
+      {/* Обертка для анимации height: auto */}
+      <div className="collapse-wrapper" data-open={active}>
+        <ul className="second">
+          {list?.map((item, index) => (
+            <li key={index} className="second__li">
+              {/* Заголовок второго уровня */}
+              <div
+                className="item-header"
+                onClick={() => toggleSecondLevel(index)}
+              >
+                {item.name}
+                {item.list && (
+                  <ChevronDown
+                    size={14}
+                    className={clsx("chevron-small", {
+                      rotated: secondActive === index,
+                    })}
+                  />
+                )}
+              </div>
+
+              {/* 3. ВЛОЖЕННЫЙ ВЫПАДАЮЩИЙ БЛОК (Level 2) */}
               {item.list && (
-                <ul className="three">
-                  {item.list.map(
-                    (
-                      subItem: { name: string; link: string },
-                      subIndex: number
-                    ) => (
+                <div
+                  className="collapse-wrapper"
+                  data-open={secondActive === index}
+                >
+                  <ul className="three">
+                    {item.list.map((subItem, subIndex) => (
                       <li key={subIndex} className="three__li">
-                        {subItem.name}
+                        <Link to={subItem.link || "#"}>{subItem.name}</Link>
                       </li>
-                    )
-                  )}
-                </ul>
+                    ))}
+                  </ul>
+                </div>
               )}
             </li>
-          )
-        )}
-      </ul>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };
