@@ -23,8 +23,6 @@ const News: React.FC<NewsProps> = ({ className }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false });
   const countNews = 3;
   const sizeIcon = 48;
-  const lang = useLG.lang;
-
   const { t } = useTranslation();
 
   const scrollPrev = useCallback(() => {
