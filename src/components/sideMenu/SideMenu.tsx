@@ -8,7 +8,7 @@ import { useLG } from "../../app/lg";
 
 import type { headerList } from "../../layouts/header/HeaderDown";
 
-import "./sideMenu.scss";
+import "./sidemenu.scss";
 import { X } from "lucide-react";
 
 interface Props {
