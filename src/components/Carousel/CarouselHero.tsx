@@ -14,7 +14,7 @@ interface Props {
 }
 
 const CarouselHero: FC<Props> = ({ imageList, className, classNameImg }) => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
+  const [emblaRef] = useEmblaCarousel({ loop: true }, [
     Autoplay({ delay: 3000 }),
     Fade(),
   ]);

@@ -3,8 +3,6 @@ import { ChevronDown } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import DropDown from "../../components/dropdown";
 
-import { listHeader } from "./list";
-
 import "./header.scss";
 import { useLG } from "../../app/lg";
 

@@ -9,7 +9,8 @@ export const useA11yStore = create((set) => ({
       return { a11yMode: newState };
     }),
   initA11y: () => {
-    const saved = JSON.parse(localStorage.getItem("a11yMode"));
+    const savedString = localStorage.getItem("a11yMode");
+    const saved = savedString ? JSON.parse(savedString) : null;
     if (saved) set({ a11yMode: saved });
   },
 }));

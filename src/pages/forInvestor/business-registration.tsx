@@ -3,10 +3,9 @@ import { type FC } from "react";
 
 interface Props {
   className?: string;
-  children: React.ReactNode;
 }
 
-const BusinessRegistration: FC<Props> = ({ children, className }) => {
+const BusinessRegistration: FC<Props> = ({  className }) => {
   return (
     <>
       <h2 className={clsx("BusinessRegistration", className)}>

@@ -17,8 +17,7 @@ const HeaderUp = () => {
   const { t } = useTranslation();
   const lang = useLG.lang;
 
-  const toggle = useA11yStore((s) => s.toggleA11yMode);
-  const a11yMode = useA11yStore((s) => s.a11yMode);
+  const toggle = useA11yStore((s: any) => s.toggleA11yMode);
 
   return (
     <div className="header__UP">

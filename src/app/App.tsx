@@ -15,6 +15,7 @@ const App = () => {
 
   useEffect(() => {
     initA11y();
+    i18n;
   }, []);
 
   useEffect(() => {

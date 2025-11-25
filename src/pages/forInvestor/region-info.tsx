@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { type FC } from "react";
 
 interface Props {
@@ -8,7 +9,7 @@ interface Props {
 const RegionInfo: FC<Props> = ({ children, className }) => {
   return (
     <>
-      <h2>RegionInfo</h2>
+      <h2 className={clsx("RegionInfo", className)}>RegionInfo</h2>
       {children}
     </>
   );

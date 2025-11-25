@@ -1,10 +1,9 @@
 import { Info } from "lucide-react";
-import type { JSX, ReactNode } from "react";
 
 interface HelpItem {
   icon: object;
   name: string;
-  info: JSX.Element;
+  info: any;
 }
 
 export const textHelp: HelpItem[] = [
