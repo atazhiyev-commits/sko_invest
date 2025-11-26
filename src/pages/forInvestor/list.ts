@@ -43,7 +43,7 @@ export const CatalogContent = [
     element: LandPlot,
   },
   {
-    link: "seacrh",
+    link: "search",
     element: SearchCatalog,
   },
   {

@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 import { ChevronDown } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import DropDown from "../../components/dropdown";
+import { useLG } from "../../app/lg";
 
 import "./header.scss";
-import { useLG } from "../../app/lg";
 
 export type headerList = {
   label: string;
@@ -32,7 +32,11 @@ const HeaderDown = () => {
           </Link>
 
           {item.list.length > 0 && (
-            <DropDown list={item.list} basePath={lang + "/catalog" + item.link} className="dropdown" />
+            <DropDown
+              list={item.list}
+              basePath={lang + "/catalog" + item.link}
+              className="dropdown"
+            />
           )}
         </div>
       ))}

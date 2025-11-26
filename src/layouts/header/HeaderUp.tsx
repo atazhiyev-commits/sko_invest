@@ -11,6 +11,7 @@ import SideMenu from "@/components/sideMenu";
 import logo from "@/assets/images/logo/logo.svg";
 
 import "./header.scss";
+import { BASE_URL } from "@/shared/store/env";
 
 const HeaderUp = () => {
   const [toggled, setToggled] = useState(false);
@@ -22,7 +23,7 @@ const HeaderUp = () => {
   return (
     <div className="header__UP">
       <div className="header__search">
-        <form action={"catalog/search"} className="form">
+        <form action={BASE_URL + lang + "/catalog/search"} className="form">
           <input
             className="search__input"
             type="search"

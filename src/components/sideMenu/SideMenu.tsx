@@ -47,20 +47,26 @@ const SideMenu: FC<Props> = ({ toggled, setToggled, children, className }) => {
           <button className="menu__close" onClick={() => setToggled(false)}>
             <X />
           </button>
-          <MenuItem className="menu-item" onClick={() => setToggled(false)}>
-            <HashLink to={lang + "/#helpers"}>
-              {t("header.headerMenu.howHelp")}
-            </HashLink>
+          <MenuItem
+            component={<HashLink to={lang + "/#helpers"} />}
+            className="menu-item"
+            onClick={() => setToggled(false)}
+          >
+            {t("header.headerMenu.howHelp")}
           </MenuItem>
-          <MenuItem className="menu-item" onClick={() => setToggled(false)}>
-            <HashLink to={lang + "/#defense"}>
-              {t("header.headerMenu.protectionInvest")}
-            </HashLink>
+          <MenuItem
+            component={<HashLink to={lang + "/#defense"} />}
+            className="menu-item"
+            onClick={() => setToggled(false)}
+          >
+            {t("header.headerMenu.protectionInvest")}
           </MenuItem>
-          <MenuItem className="menu-item" onClick={() => setToggled(false)}>
-            <HashLink to={lang + "/#contact"}>
-              {t("header.headerMenu.contacts")}
-            </HashLink>
+          <MenuItem
+            component={<HashLink to={lang + "/#contact"} />}
+            className="menu-item"
+            onClick={() => setToggled(false)}
+          >
+            {t("header.headerMenu.contacts")}
           </MenuItem>
           {nameBottom.map((item, index) => (
             <MenuItem
