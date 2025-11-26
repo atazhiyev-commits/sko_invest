@@ -11,6 +11,7 @@ import ErrorPage from "@/layouts/error/ErrorPage";
 
 import "@/styles/App.scss";
 import { languageList } from "@/shared/config/i18n/listLang";
+import { ScrollToTop } from "@/router/SrollTop";
 
 const App = () => {
   const a11yMode = useA11yStore((s: any) => s.a11yMode);
@@ -33,6 +34,7 @@ const App = () => {
 
   return (
     <div className="app">
+      <ScrollToTop />
       <Header />
       <main className="main">
         <Routes>
