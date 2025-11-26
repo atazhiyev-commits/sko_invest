@@ -18,13 +18,13 @@ i18n
   .init({
     debug: true,
     fallbackLng: "ru",
-    supportedLngs: ["ru", "en", "kz"],
+    supportedLngs: ["ru", "en", "kz", "chi"],
     interpolation: {
       escapeValue: false,
     },
     detection: {
       order: ["path", "cookie", "localStorage"],
-      lookupFromPathIndex: 0,
+      lookupFromPathIndex: 1,
     },
     resources,
   });

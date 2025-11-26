@@ -1,3 +1,4 @@
+import ErrorPage from "@/layouts/error/ErrorPage";
 import Layouts from "../layouts";
 import Catalog from "../layouts/catalog";
 import News from "../pages/news";
@@ -17,5 +18,9 @@ export const routeList = [
   {
     path: "/:lang/catalog/*",
     element: Catalog,
+  },
+  {
+    path: "*",
+    element: ErrorPage,
   },
 ];
