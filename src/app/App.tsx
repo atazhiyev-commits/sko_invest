@@ -36,7 +36,7 @@ const App = () => {
       <main className="main">
         <Routes>
           <Route
-            path="/"
+            path="/sko_invest/"
             element={<Navigate to={`/ru`} replace />}
           />
 
