@@ -14,17 +14,16 @@ const SearchCatalog: FC<Props> = ({ className }) => {
 
   const resIndex = useSearchIndex();
 
+  const titleSection = resIndex.map((item: any, index: number) => item.title);
+  const filteredSection = titleSection.filter((item: any, index: number) => item.includes(decoded));
+  console.log(titleSection);
+
   return (
     <section className={clsx("searchCatalog", className)}>
       <h2 className="title-section">Результаты: </h2>
       <p>Поиск слово: {decoded}</p>
       <div className="blockresult">
-        {/* {resIndex.filter((item: LayoutType, index: number) =>
-          item.list
-            .includes(decoded)
-            .map((item, index) => <p key={index}>{item}</p>)
-        )} */}
-
+        <p>{filteredSection ? filteredSection : "Ничего не найдено"}</p>
       </div>
     </section>
   );
