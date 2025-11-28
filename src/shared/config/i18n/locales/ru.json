@@ -194,15 +194,16 @@
     "hero": {
       "title": "ИНВЕСТИРУЙТЕ В СЕВЕРО КАЗАХСТАНСКУЮ ОБЛАСТЬ",
       "Iwant": "Я ХОЧУ",
+      "linkCatalog": "/catalog",
 
       "list": [
         {
           "name": "Получить земельный участок в аренду без торгов",
-          "link": "/investor-guide/land-plots/land-without-auction"
+          "link": "/catalog/investor-guide/land-plots/land-without-auction"
         },
         {
           "name": "Посмотреть меры поддержки",
-          "link": "/investor-guide/gov-support/support-measures"
+          "link": "/catalog/investor-guide/gov-support/support-measures"
         },
         {
           "name": "Выбрать место для реализации проекта",

@@ -1,4 +1,4 @@
-import type { LayoutType } from "@/types/translateTypes";
+import type { FAQtype, LayoutType } from "@/types/translateTypes";
 import { useTranslation } from "react-i18next";
 
 export const useSearchIndex = () => {
@@ -7,6 +7,7 @@ export const useSearchIndex = () => {
   const helpersIndex = t("helpers", { returnObjects: true }) as LayoutType;
   const defenseIndex = t("defense", { returnObjects: true }) as LayoutType;
   const heroIndex = t("hero", { returnObjects: true }) as LayoutType;
+  const faqIndex = t("faq", { returnObjects: true }) as FAQtype;
 
   const SearchIndex = [
     {
@@ -28,6 +29,11 @@ export const useSearchIndex = () => {
       title: heroIndex.title,
       link: heroIndex?.link,
       list: heroIndex?.list,
+    },
+    {
+      title: faqIndex.title,
+      link: faqIndex?.link,
+      list: faqIndex?.list,
     },
   ];
 

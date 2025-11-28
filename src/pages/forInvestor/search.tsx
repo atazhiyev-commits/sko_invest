@@ -15,13 +15,32 @@ interface Props {
 const SearchCatalog: FC<Props> = ({ className }) => {
   const resIndex = useSearchIndex();
   const searchParams = useLocation().search.split("=")[1];
-  const decoded = decodeURIComponent(searchParams);
+  const decoded = decodeURIComponent(searchParams).toLowerCase();
 
-  const res = resIndex.filter((item: any) => {
-    return (
-      item.title.toLowerCase().includes(decoded.toLowerCase())
-    );
-  });
+  const res = resIndex
+    .map((section) => {
+      const titleMatch = section.title.toLowerCase().includes(decoded);
+
+      // Фильтруем элементы list
+      const filteredList =
+        section.list &&
+        section.list.filter((item) =>
+          Object.values(item)
+            .filter((v) => typeof v === "string")
+            .some((v) => v.toLowerCase().includes(decoded))
+        );
+
+      // Если нет совпадений ни в title, ни в list → пропускаем
+      if (!titleMatch && filteredList) return null;
+
+      // Если совпало в title → показываем всю секцию
+      return {
+        title: section.title,
+        link: section.link,
+        list: titleMatch ? section.list : filteredList,
+      };
+    })
+    .filter(Boolean);
 
   console.log(res);
 
@@ -29,27 +48,30 @@ const SearchCatalog: FC<Props> = ({ className }) => {
     <section className={clsx("searchCatalog", className)}>
       <h2 className="title-section searchCatalog__title">Результаты: </h2>
       <div className="blockresult">
-        {res && res?.map((item: any, index: number) => (
+        {res.map((section: any, index: number) => (
           <Fragment key={index}>
             <HashLink
-              to={`/${useLang.lang}${item?.link}`}
-              key={index}
-              className="resultText"
+              to={`/${useLang.lang}${section.link}`}
+              className="resultText section-title"
             >
-              {item.title}
+              {section.title}
             </HashLink>
-            {item?.list !== undefined && item.list.map(
-              (subItem: any, subIndex: number) =>
-                subItem.name.toLowerCase().includes(decoded.toLowerCase()) && (
-                  <HashLink
-                    to={`/${useLang.lang}${subItem?.link}`}
-                    key={subIndex}
-                    className="resultText"
-                  >
-                    {subItem.name}
-                  </HashLink>
-                )
-            )}
+
+            {section.list &&
+              section.list.map((item: any, subIndex: number) => (
+                <HashLink
+                  key={subIndex}
+                  to={`/${useLang.lang}${item.link || section.link}`}
+                  className="resultText item-text"
+                >
+                  {item.name ||
+                    item.question ||
+                    item.title ||
+                    Object.values(item)
+                      .filter((v) => typeof v === "string")
+                      .join(" • ")}
+                </HashLink>
+              ))}
           </Fragment>
         ))}
       </div>
