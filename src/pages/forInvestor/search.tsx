@@ -15,20 +15,19 @@ interface Props {
 
 const SearchCatalog: FC<Props> = ({ className }) => {
   const resIndex = useSearchIndex();
+
   const searchParams = useLocation().search.split("=")[1];
-  const decoded = decodeURIComponent(searchParams).toLowerCase();
+  const decoded = decodeURIComponent(searchParams).toLowerCase().replace("+", "");
 
   const res = resIndex.map((section) => {
     const titleMatch =
       section.title && section.title.toLowerCase().includes(decoded);
 
-    const filteredList =
-      section.list &&
-      section.list.filter((item) =>
-        Object.values(item)
-          .filter((v) => typeof v === "string")
-          .some((v) => v.toLowerCase().includes(decoded))
-      );
+  const filteredList = section.list?.filter((item) =>
+    Object.values(item)
+      .filter((v) => typeof v === "string")
+      .some((v) => v.toLowerCase().replace(" ", "").includes(decoded))
+  );
 
     return {
       title: titleMatch ? section.title : null,
@@ -47,7 +46,9 @@ const SearchCatalog: FC<Props> = ({ className }) => {
           <Fragment key={index}>
             {section.title !== null && (
               <HashLink
-                to={`/${useLang.lang}${section.hash ? section.hash : section.link}`}
+                to={`/${useLang.lang}${
+                  section.hash ? section.hash : section.link
+                }`}
                 className="resultText section-title section-result"
               >
                 {section.title}
