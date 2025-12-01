@@ -8,7 +8,7 @@ export const useSearchIndex = () => {
   const defenseIndex = t("defense", { returnObjects: true }) as LayoutType;
   const heroIndex = t("hero", { returnObjects: true }) as LayoutType;
   const faqIndex = t("faq", { returnObjects: true }) as FAQtype;
-  const catalogIndex = t("header", { returnObjects: true }) as FAQtype;
+  const catalogIndex = t("header", { returnObjects: true }) as any;
 
   const SearchIndex = [
     {

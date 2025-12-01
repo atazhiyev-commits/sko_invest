@@ -41,9 +41,7 @@ const Catalog: FC<Props> = ({ className }) => {
           <Link to={"/"} className="breadcrumb">
             На главную
           </Link>
-          <h2 className="title-section catalog__head-title">
-            {state?.name}
-          </h2>
+          <h2 className="title-section catalog__head-title">{state?.name}</h2>
         </Container>
       </div>
 

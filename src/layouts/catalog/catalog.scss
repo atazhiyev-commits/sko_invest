@@ -64,6 +64,10 @@
 
   @media screen and (max-width: 992px) {
     margin-top: 60px;
+    .catalog__head-title {
+      font-size: 32px;
+    }
+
     &__content {
       flex-direction: column;
 
@@ -78,11 +82,19 @@
 
   @media screen and (max-width: 650px) {
     margin-top: 100px;
+
+    .catalog__head-title {
+      font-size: 24px;
+    }
   }
 
   @media screen and (max-width: 600px) {
     &__content {
       flex-direction: column;
+    }
+
+    .catalog__head-title {
+      font-size: 18px;
     }
   }
 }

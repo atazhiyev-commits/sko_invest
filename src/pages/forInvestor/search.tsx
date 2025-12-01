@@ -21,49 +21,83 @@ const SearchCatalog: FC<Props> = ({ className }) => {
     .toLowerCase()
     .replace("+", "");
 
-  const res = resIndex.map((section) => {
-    const titleMatch =
-      section.title && section.title.toLowerCase().includes(decoded);
+  const clear = (name: string) => {
+    return name.replace(" ", "").toLowerCase();
+  };
 
-    const filteredList = section.list?.filter((item: any) =>
-      Object.values(item)
-        .filter((v) => typeof v === "string")
-        .some((v) => v.toLowerCase().replace(" ", "").includes(decoded))
-    );
+  const res = resIndex
+    .filter((find: any) => find.title !== "catalog")
+    .map((section) => {
+      const titleMatch =
+        section.title && section.title.toLowerCase().includes(decoded);
 
-    return {
-      title: titleMatch ? section.title : null,
-      link: section.link,
-      list: filteredList ? filteredList : section.list,
-    };
-  });
+      const filteredList = section.list?.filter((item: any) =>
+        Object.values(item)
+          .filter((v) => typeof v === "string")
+          .some((v) => v.toLowerCase().replace(" ", "").includes(decoded))
+      );
 
-  const cataloglist = resIndex
-    .filter((item: any) => item.title === "catalog")
-    .map((item: any) =>
-      item.list.filter((first: any) =>
-        first.label.replace(" ", "").includes(decoded)
-      )
-    )
-    console.log(cataloglist);
+      return {
+        title: titleMatch ? section.title : null,
+        link: section.link,
+        list: filteredList ? filteredList : section.list,
+      };
+    });
+
+  const q = clear(decoded);
+
+  const cataloglist =
+    resIndex
+      .find((i: any) => i.title === "catalog")
+      ?.list.flatMap((first: any) => {
+        const firstMatch = clear(first.label).includes(q);
+
+        const seconds = first.list.flatMap((second: any) => {
+          const secondMatch = clear(second.name).includes(q);
+
+          const thirds = second.list?.filter((t: any) =>
+            clear(t.name).includes(q)
+          );
+
+          if (secondMatch)
+            return [
+              {
+                name: second.name,
+                link: first.link + second.link,
+                list: thirds,
+              },
+            ];
+          if (thirds?.length)
+            return thirds.map((t: any) => ({
+              name: t.name,
+              link: first.link + second.link + t.link,
+            }));
+          return [];
+        });
+
+        if (firstMatch)
+          return [{ name: first.label, link: first.link, list: seconds }];
+        return seconds;
+      }) ?? [];
 
   console.log(cataloglist);
-
-  console.log(res);
 
   return (
     <section className={clsx("searchCatalog", className)}>
       <h2 className="title-section searchCatalog__title">Результаты: </h2>
       <div className="blockresult">
-        {cataloglist.map((section: any, index: number) => (
-          <HashLink
-            key={index}
-            to={`/${useLang.lang}${section.title}${section.link}`}
-            className="resultText section-title section-result"
-          >
-            {section.title}
-          </HashLink>
+        {cataloglist.flatMap((item: any, index: number) => (
+          <Fragment key={index}>
+            <HashLink
+              state={{ name: item.name }}
+              to={`/${useLang.lang}/catalog${item.link}`}
+              className="resultText item-text"
+            >
+              {item.name}
+            </HashLink>
+          </Fragment>
         ))}
+
         {res.map((section: any, index: number) => (
           <Fragment key={index}>
             {section.title !== null && (
@@ -73,7 +107,7 @@ const SearchCatalog: FC<Props> = ({ className }) => {
                 }`}
                 className="resultText section-title section-result"
               >
-                {section.title}
+                {section.title || section.label}
               </HashLink>
             )}
 
@@ -87,6 +121,7 @@ const SearchCatalog: FC<Props> = ({ className }) => {
                   {item.name ||
                     item.question ||
                     item.title ||
+                    item.label ||
                     Object.values(item)
                       .filter((v) => typeof v === "string")
                       .join(" • ")}
