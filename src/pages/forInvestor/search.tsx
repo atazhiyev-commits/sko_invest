@@ -5,8 +5,6 @@ import { HashLink } from "react-router-hash-link";
 import { useSearchIndex } from "@/shared/search/searchIndex";
 import { useLang } from "@/shared/store/language";
 
-import type { LayoutType } from "@/types/translateTypes";
-
 import "./seacrh.scss";
 
 interface Props {
@@ -79,8 +77,6 @@ const SearchCatalog: FC<Props> = ({ className }) => {
           return [{ name: first.label, link: first.link, list: seconds }];
         return seconds;
       }) ?? [];
-
-  console.log(cataloglist);
 
   return (
     <section className={clsx("searchCatalog", className)}>
