@@ -21,8 +21,6 @@ const PageNews = () => {
     connect_api();
   }, []);
 
-  console.log(id);
-
   return (
     pageNews && (
       <section className="pageNews">
@@ -33,7 +31,7 @@ const PageNews = () => {
           </header>
           <div className="pageNews__image">
             <img
-              src={import.meta.env.VITE_API_URL + pageNews.first_image.url}
+              src={pageNews.first_image.url}
               alt={pageNews.title_news}
             />
           </div>

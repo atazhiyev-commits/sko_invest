@@ -12,6 +12,7 @@ import ErrorPage from "@/layouts/error/ErrorPage";
 import { languageList } from "@/shared/config/i18n/listLang";
 
 import "@/styles/App.scss";
+import { getWeb } from "@/api/connect";
 
 const App = () => {
   const a11yMode = useA11yStore((s: any) => s.a11yMode);

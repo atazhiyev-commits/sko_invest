@@ -11,9 +11,13 @@ const api = axios.create({
 
 export const getNews = async (locale: string) => {
   const res = await api.get(`/muchnews?locale=${locale}&populate=*`);
-  console.log(res)
   return res.data;
 };
+
+export const getWeb = async () => {
+  const res = await api.get(`https://balanced-flame-d5bc834010.strapiapp.com/api/`);
+  return res.data;
+}
 
 export const getIdNews = async (id: string, locale: string) => {
   const res = await api.get(`/muchnews/${id}?locale=${locale}&populate=*`);

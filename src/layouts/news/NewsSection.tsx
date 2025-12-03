@@ -49,25 +49,25 @@ const NewsSection: React.FC<NewsProps> = ({ className }) => {
           <div className="news__other">
             <h2 className="second-title-section"> {t("news.otherNews")}: </h2>
             <div className="news__other-content">
-              {listNews.slice(countNews, listNews.length).map((newsItem, index) => {
-                if (index >= countNews) return null;
-                return (
-                  <Link
-                    to={`news/${newsItem.documentId}`}
-                    key={index}
-                    className="news__small-wrapper"
-                  >
-                    <SmallImg
-                      className="news__small"
-                      title={newsItem.title_news}
-                      date={newsItem.date_news}
-                      imageSrc={
-                        import.meta.env.VITE_API_URL + newsItem.first_image.url
-                      }
-                    />
-                  </Link>
-                );
-              })}
+              {listNews
+                .slice(countNews, listNews.length)
+                .map((newsItem, index) => {
+                  if (index >= countNews) return null;
+                  return (
+                    <Link
+                      to={`news/${newsItem.documentId}`}
+                      key={index}
+                      className="news__small-wrapper"
+                    >
+                      <SmallImg
+                        className="news__small"
+                        title={newsItem.title_news}
+                        date={newsItem.date_news}
+                        imageSrc={newsItem.first_image.url}
+                      />
+                    </Link>
+                  );
+                })}
             </div>
           </div>
         </div>

@@ -39,7 +39,7 @@ const CarouselEmbla: FC<Props> = ({ newsList, countNews, className }) => {
                   className="news__big"
                   title={newsItem.title_news}
                   date={newsItem.date_news}
-                  imageSrc={API_URL + newsItem.first_image.url}
+                  imageSrc={newsItem.first_image.url}
                 />
               </Link>
             </div>

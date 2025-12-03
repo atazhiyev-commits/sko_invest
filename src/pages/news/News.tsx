@@ -45,7 +45,7 @@ const News: FC<Props> = ({ className }) => {
                     title={item.title_news}
                     date={item.date_news}
                     imageSrc={
-                      import.meta.env.VITE_API_URL + item.first_image.url
+                      item.first_image.url
                     }
                   />
                 </div>
