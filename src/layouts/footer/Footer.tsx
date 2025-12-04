@@ -1,7 +1,10 @@
-import type { FC } from 'react';
-import clsx from 'clsx';
-import FooterUp from './FooterUp';
-import FooterBottom from './FooterBottom';
+import type { FC } from "react";
+import clsx from "clsx";
+
+import FooterUp from "./FooterTop";
+import FooterBottom from "./FooterBottom";
+
+import "./footer.scss";
 
 interface Props {
   className?: string;
@@ -9,7 +12,7 @@ interface Props {
 
 const Footer: FC<Props> = ({ className }) => {
   return (
-    <section className={clsx('', className)}>
+    <section className={clsx("footer", className)}>
       <FooterUp />
       <FooterBottom />
     </section>

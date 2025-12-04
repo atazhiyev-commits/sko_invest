@@ -1,7 +1,7 @@
 import ErrorPage from "@/layouts/error/ErrorPage";
-import Layouts from "../layouts";
-import Catalog from "../layouts/catalog";
-import News from "../pages/news";
+import Layouts from "@/layouts";
+import Catalog from "@/layouts/catalog";
+import News from "@/pages/news";
 import PageNews from "@/pages/pageNews";
 
 export const routeList = [
@@ -17,9 +17,6 @@ export const routeList = [
     path: "/:lang/news/:id",
     element: PageNews,
   },
-  //   {
-  //     path: "/faq",
-  //   },
   {
     path: "/:lang/catalog/*",
     element: Catalog,

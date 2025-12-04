@@ -157,10 +157,10 @@
 
   @media screen and (max-width: 800px) {
     padding-block: 25px;
-    &__content{
-        flex-direction: column;
-        gap: 20px;
-        text-align: center;
+    &__content {
+      flex-direction: column;
+      gap: 20px;
+      text-align: center;
     }
   }
 }

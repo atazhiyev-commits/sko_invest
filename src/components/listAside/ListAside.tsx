@@ -1,11 +1,11 @@
 import { type FC } from "react";
-import type { headerList } from "../../layouts/header/HeaderDown";
 import ButtonAside from "../asideBtn";
+import type { LayoutType } from "@/types/translateTypes";
 
 interface Props {
   className?: string;
   children: React.ReactNode;
-  list?: Array<headerList>;
+  list?: Array<LayoutType>;
 }
 
 const ListAside: FC<Props> = ({ list, children, className }) => {

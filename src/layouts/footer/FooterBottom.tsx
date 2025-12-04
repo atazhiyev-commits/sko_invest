@@ -1,12 +1,11 @@
 import type { FC } from "react";
-import clsx from "clsx";
+import { Link } from "react-router";
 import { useTranslation } from "react-i18next";
+import clsx from "clsx";
 
-import "./footer.scss";
+import Container from "@/components/container/Container";
 
 import CSI from "@/assets/logo/CSI.svg";
-import { Link } from "react-router";
-import Container from "@/components/container/Container";
 
 interface Props {
   className?: string;
@@ -19,9 +18,7 @@ const FooterBottom: FC<Props> = ({ className }) => {
     <section className={clsx("footerBottom", className)}>
       <Container>
         <div className="footerBottom__content">
-          <p className="footerBottom__nameCompany">
-            © 2025 АО "НК “INVEST KYZYLZHAR”
-          </p>
+          <p className="footerBottom__nameCompany">© 2025 АО "НК “INVEST SKO</p>
           <Link to={"https://csi.kz"} className="footerBottom__corruption">
             {t("footer.bottom.corruption")}
           </Link>

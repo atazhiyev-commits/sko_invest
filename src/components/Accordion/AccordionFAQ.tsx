@@ -5,17 +5,13 @@ import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
+import type { FAQlist } from "@/types/translateTypes";
 
 import { ChevronDown } from "lucide-react";
 
 interface FAQProps extends FAQlist {
   className?: string;
 }
-
-export type FAQlist = {
-  question: string;
-  answer: string;
-};
 
 const AccordionFAQ: FC<FAQProps> = ({ question, answer, className }) => {
   const [expanded, setExpanded] = useState<string | false>(false);
@@ -39,7 +35,9 @@ const AccordionFAQ: FC<FAQProps> = ({ question, answer, className }) => {
         <Typography className="question">{question}</Typography>
       </AccordionSummary>
       <AccordionDetails>
-        <Typography className="answer"><strong>{answer}</strong></Typography>
+        <Typography className="answer">
+          <strong>{answer}</strong>
+        </Typography>
       </AccordionDetails>
     </Accordion>
   );

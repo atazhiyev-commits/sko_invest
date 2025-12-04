@@ -1,30 +1,28 @@
 import { type FC } from "react";
 import { Link } from "react-router";
-import { Sidebar, Menu, MenuItem } from "react-pro-sidebar";
 import { HashLink } from "react-router-hash-link";
 import { useTranslation } from "react-i18next";
 import clsx from "clsx";
+import { lang } from "@/shared/store/lg";
+import { Sidebar, Menu, MenuItem } from "react-pro-sidebar";
+import type { LayoutType } from "@/types/translateTypes";
 
-import { useLG } from "../../app/lg";
-
-import type { headerList } from "../../layouts/header/HeaderDown";
+import { X } from "lucide-react";
 
 import "./sidemenu.scss";
-import { X } from "lucide-react";
 
 interface Props {
   className?: string;
-  toggled?: boolean;
+  toggled: boolean;
   setToggled?: any;
   children?: React.ReactNode;
 }
 
 const SideMenu: FC<Props> = ({ toggled, setToggled, children, className }) => {
   const { t } = useTranslation();
-  const lang = useLG.lang;
   const nameBottom = t("header.headerBottom", {
     returnObjects: true,
-  }) as Array<headerList>;
+  }) as Array<LayoutType>;
 
   return (
     <section
@@ -68,7 +66,7 @@ const SideMenu: FC<Props> = ({ toggled, setToggled, children, className }) => {
           >
             {t("header.headerMenu.contacts")}
           </MenuItem>
-          {nameBottom.map((item, index) => (
+          {nameBottom.map((item, index: number) => (
             <MenuItem
               key={index}
               component={<Link to={lang + "/catalog" + item.link} />}

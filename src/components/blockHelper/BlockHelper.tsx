@@ -1,11 +1,9 @@
-import type { ReactNode } from "react";
 import clsx from "clsx";
+import type { HelperType } from "@/types/translateTypes";
 
 import "./blockHelper.scss";
 
-interface BlockHelperProps {
-  name: string;
-  icon: ReactNode;
+interface BlockHelperProps extends HelperType {
   onClick: () => void;
   className?: string;
 }

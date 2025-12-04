@@ -1,1 +1,1 @@
-export {default} from "./ButtonAside";
+export { default } from "./Aside";

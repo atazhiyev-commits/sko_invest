@@ -1,9 +1,9 @@
 import clsx from "clsx";
 import { useTranslation } from "react-i18next";
-import type { FAQlist } from "../../components/Accordion/AccordionFAQ";
+import type { FAQlist } from "@/types/translateTypes";
 
-import AccordionFAQ from "../../components/Accordion/AccordionFAQ";
-import Container from "../../components/container/Container";
+import AccordionFAQ from "@/components/Accordion/AccordionFAQ";
+import Container from "@/components/container/Container";
 
 import "./faq.scss";
 

@@ -1,7 +1,7 @@
 import { Link } from "react-router";
 import { useTranslation } from "react-i18next";
 import clsx from "clsx";
-import type { list } from "@/types/translateTypes";
+import type { List } from "@/types/translateTypes";
 
 import Container from "@/components/container/Container";
 import CarouselHero from "@/components/Carousel/CarouselHero";
@@ -18,7 +18,7 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({ className }) => {
   const { t } = useTranslation();
-  const listHero = t("hero.list", { returnObjects: true }) as Array<list>;
+  const listHero = t("hero.list", { returnObjects: true }) as Array<List>;
 
   return (
     <section className={clsx("hero", className)}>

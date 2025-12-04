@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import clsx from "clsx";
-import { Info } from "lucide-react";
+import type { HelperList } from "@/types/translateTypes";
+
 import Container from "@/components/container/Container";
 import BlockHelper from "@/components/blockHelper";
+
+import { Info } from "lucide-react";
 
 import "./helpers.scss";
 
@@ -11,18 +14,14 @@ interface HelperProps {
   className?: string;
 }
 
-type helpList = {
-  name: string;
-  list: string;
-};
-
 const Helper: React.FC<HelperProps> = ({ className }) => {
   const { t } = useTranslation();
   const listHelpText = t("helpers.list", {
     returnObjects: true,
-  }) as Array<helpList>;
+  }) as Array<HelperList>;
 
-  const [infoText, setInfoText] = useState<any>(listHelpText[0]);
+  const [infoText, setInfoText] = useState(listHelpText[0]);
+
   return (
     <section className={clsx("helper", className)} id="helpers">
       <Container>
@@ -32,12 +31,12 @@ const Helper: React.FC<HelperProps> = ({ className }) => {
             {listHelpText.map((item, index: number) => (
               <li className="list_item" key={index}>
                 <BlockHelper
-                  key={index}
                   icon={<Info size={32} />}
                   name={item.name}
                   onClick={() => {
                     setInfoText(item);
                   }}
+                  list={[]}
                 />
               </li>
             ))}

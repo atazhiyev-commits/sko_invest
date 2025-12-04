@@ -11,7 +11,6 @@ const api = axios.create({
 
 export const getNews = async (locale: string) => {
   const res = await api.get(`/muchnews?locale=${locale}&populate=*`);
-  console.log(res)
   return res.data;
 };
 

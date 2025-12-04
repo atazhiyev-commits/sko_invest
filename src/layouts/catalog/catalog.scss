@@ -23,13 +23,6 @@
       position: relative;
       z-index: 2;
 
-      .breadcrumb {
-        color: var(--color-white);
-        font-size: 20px;
-        font-weight: 600;
-        text-decoration: underline;
-      }
-
       .catalog__head-title {
         margin-top: 35px;
         font-size: 48px;
@@ -39,8 +32,27 @@
     }
   }
 
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--color-lightBlue);
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: underline;
+    margin-top: 30px;
+
+    .move-left {
+      width: 20px;
+    }
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
   &__content {
-    margin-block: 63px;
+    margin-block: 35px 63px;
     display: flex;
     gap: 57px;
 

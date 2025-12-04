@@ -1,36 +1,26 @@
 import { useEffect, useState, type FC } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { lang } from "@/shared/store/lg";
+import type { ArrList } from "@/types/translateTypes";
 import clsx from "clsx";
 import { ChevronDown } from "lucide-react";
 
 import "./buttonAside.scss";
-import { useLang } from "@/shared/store/language";
-
-interface SubItem {
-  name: string;
-  link?: string;
-}
-
-interface ListItem {
-  name: string;
-  link: string;
-  list?: SubItem[];
-}
 
 interface Props {
   name: string;
   activeLink: string;
-  list?: ListItem[];
+  list?: ArrList[];
   className?: string;
 }
 
-const ButtonAside: FC<Props> = ({ name, list, activeLink, className }) => {
-  const lang = useLang.lang;
+const Aside: FC<Props> = ({ name, list, activeLink, className }) => {
   const [active, setActive] = useState(false);
   const [secondActive, setSecondActive] = useState<string>("");
   const [threeActive, setThreeActive] = useState<string>("");
 
   const clean = (s: string) => s.replace("/", "");
+  
   const toggleSecondLevel = (link: string) => {
     setSecondActive((prev) => (prev === link ? "" : link));
   };
@@ -139,4 +129,4 @@ const ButtonAside: FC<Props> = ({ name, list, activeLink, className }) => {
   );
 };
 
-export default ButtonAside;
+export default Aside;

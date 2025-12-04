@@ -1,25 +1,23 @@
 import type { FC } from "react";
-import clsx from "clsx";
-import { Link, useLocation } from "react-router";
+import { Link } from "react-router";
 import { HashLink } from "react-router-hash-link";
 import { useTranslation } from "react-i18next";
+import clsx from "clsx";
 import Container from "@/components/container/Container";
 
 import { Facebook, Instagram, Send } from "lucide-react";
 import logo from "@/assets/images/logo/logo.svg";
 import gerb from "@/assets/images/logo/gerb.svg";
-
-import "./footer.scss";
-import FooterBottom from "./FooterBottom";
+import { lang } from "@/shared/store/lg";
+import SocMedia from "@/sections/socMedia";
 
 interface Props {
   className?: string;
 }
 
-const FooterUp: FC<Props> = ({ className }) => {
-  const lang = useLocation().pathname.split("/")[1];
-
+const FooterTop: FC<Props> = ({ className }) => {
   const { t } = useTranslation();
+
   return (
     <footer className={clsx("footer", className)} id="contact">
       <Container>
@@ -27,7 +25,7 @@ const FooterUp: FC<Props> = ({ className }) => {
           <div className="footer__icons">
             <div className="iconGlav">
               <div className="gerb">
-                <Link to={lang + "https://primeminister.kz/"}>
+                <Link to={"https://primeminister.kz/"}>
                   <img src={gerb} alt="Герб" />
                 </Link>
               </div>
@@ -37,17 +35,8 @@ const FooterUp: FC<Props> = ({ className }) => {
                 </Link>
               </div>
             </div>
-            <div className="socMedia">
-              <Link className="soc_link" to="https://www.facebook.com/rsk.sko/">
-                <Facebook className="iconMedia" size={26} />
-              </Link>
-              <Link className="soc_link" to="https://www.instagram.com/sko_kz/">
-                <Instagram className="iconMedia" size={26} />
-              </Link>
-              <Link className="soc_link" to="https://t.me/s/skonews">
-                <Send className="iconMedia" size={26} />
-              </Link>
-            </div>
+
+            <SocMedia />
           </div>
 
           <div className="footer__menu">
@@ -128,4 +117,4 @@ const FooterUp: FC<Props> = ({ className }) => {
   );
 };
 
-export default FooterUp;
+export default FooterTop;

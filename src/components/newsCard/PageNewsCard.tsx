@@ -1,7 +1,7 @@
+import { Link } from "react-router";
 import clsx from "clsx";
 
 import "./newsCard.scss";
-import { Link } from "react-router";
 
 interface PageNewsCardProps {
   id: number;

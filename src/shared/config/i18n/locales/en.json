@@ -264,16 +264,20 @@
 
       "list": [
         {
-          "question": "What is the basis for obtaining a petition to issue an investor visa?",
-          "answer": "Membership of the applicant in the Council of Foreign Investors under the President of the Republic of Kazakhstan; - possession of an investment contract concluded with the authorized body for investments; - possession of recommendations from state bodies or quasi-governmental sector entities confirming the implementation of an investment project by the applicant on the territory of the Republic of Kazakhstan."
+          "question": "What is the basis for obtaining an application for an investor visa?",
+          "answer": "Membership of the applicant in the Foreign Investors' Council under the President of the Republic of Kazakhstan; - the applicant's possession of an investment contract concluded with the authorized investment body; - the applicant's possession of recommendations from state bodies or quasi-public sector entities confirming the applicant's implementation of an investment project on the territory of the Republic of Kazakhstan."
         },
         {
-          "question": "Visa?",
-          "answer": "Membership of the applicant in the Council of Foreign Investors under the President of the Republic of Kazakhstan; - possession of an investment contract concluded with the authorized body for investments; - possession of recommendations from state bodies or quasi-governmental sector entities confirming the implementation of an investment project by the applicant on the territory of the Republic of Kazakhstan."
+          "question": "What are the main conditions required to receive special investment preferences?",
+          "answer": "Membership of the applicant in the Foreign Investors' Council under the President of the Republic of Kazakhstan."
         },
         {
-          "question": "LOL KEK 4EBUREK?",
-          "answer": "Membership of the applicant in the Council of Foreign Investors under the President of the Republic of Kazakhstan; - possession of an investment contract concluded with the authorized body for investments; - possession of recommendations from state bodies or quasi-governmental sector entities confirming the implementation of an investment project by the applicant on the territory of the Republic of Kazakhstan."
+          "question": "What documents and confirmations are necessary for the official implementation of an investment project in the Republic of Kazakhstan?",
+          "answer": "The applicant's possession of an investment contract concluded with the authorized investment body."
+        },
+        {
+          "question": "How is the implementation of an investment project confirmed?",
+          "answer": "The applicant's possession of recommendations from state bodies or quasi-public sector entities confirming the applicant's implementation of an investment project on the territory of the Republic of Kazakhstan."
         }
       ]
     },

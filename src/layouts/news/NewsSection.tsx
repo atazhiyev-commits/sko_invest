@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router";
-import clsx from "clsx";
-import i18n from "@/shared/config/i18n/i18n";
 import { getNews } from "@/api/connect";
-import type { NewsItem } from "@/types/api_news_types";
 import { useTranslation } from "react-i18next";
+import i18n from "@/shared/config/i18n/i18n";
+import type { NewsItem } from "@/types/api_news_types";
+import clsx from "clsx";
 
 import Container from "@/components/container/Container";
 import CarouselEmbla from "@/components/Carousel/CarouselEmbla";
-import SmallImg from "@/components/newsCard/SmallImg";
+import SmallImg from "@/components/newsCard/small/SmallImg";
 
 import "./news.scss";
 
@@ -17,9 +17,9 @@ interface NewsProps {
 }
 
 const NewsSection: React.FC<NewsProps> = ({ className }) => {
+  const { t } = useTranslation();
   const [listNews, setListNews] = useState<NewsItem[]>([]);
 
-  const { t } = useTranslation();
   const countNews = 4;
 
   useEffect(() => {

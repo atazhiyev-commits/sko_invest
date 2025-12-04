@@ -1,1 +1,1 @@
-export {default} from "./PageNews";
+export { default } from "./PageNews";

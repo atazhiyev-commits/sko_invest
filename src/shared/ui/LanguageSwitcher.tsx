@@ -1,7 +1,7 @@
-import { useEffect, type FC } from "react";
-import clsx from "clsx";
+import { type FC } from "react";
 import { useLocation, useNavigate } from "react-router";
-import i18n from "../config/i18n/i18n";
+import i18n from "./../config/i18n/i18n";
+import clsx from "clsx";
 
 interface Props {
   className?: string;

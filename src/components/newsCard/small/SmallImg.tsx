@@ -1,5 +1,7 @@
 import clsx from "clsx";
 
+import "./small.scss";
+
 interface SmallCardProps {
   title: string;
   date: string;

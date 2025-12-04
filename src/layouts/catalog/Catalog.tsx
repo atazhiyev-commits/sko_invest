@@ -1,23 +1,22 @@
-import { type FC } from "react";
-import clsx from "clsx";
 import { Link, useLocation } from "react-router";
 import { useTranslation } from "react-i18next";
+import clsx from "clsx";
+
 import Container from "@/components/container/Container";
 import ButtonAside from "@/components/asideBtn";
 import { CatalogContent } from "@/pages/forInvestor/list";
 import Anylink from "@/pages/forInvestor/Anylink";
 import type { LayoutType } from "@/types/translateTypes";
 
+import { MoveLeft } from "lucide-react";
+
 import "./catalog.scss";
 
-interface Props {
-  className?: string;
-}
-
-const Catalog: FC<Props> = ({ className }) => {
+const Catalog = () => {
   const { t } = useTranslation();
   const location = useLocation().pathname;
   const { state } = useLocation();
+
   const lastPart = location
     .split("/")
     .filter((segment) => segment.length > 0)
@@ -35,12 +34,9 @@ const Catalog: FC<Props> = ({ className }) => {
   const Component: any = reuslt ? reuslt.element : Anylink;
 
   return (
-    <section className={clsx("catalog", className)}>
+    <section className={clsx("catalog")}>
       <div className="catalog__head">
         <Container className="catalog__head-container">
-          <Link to={"/"} className="breadcrumb">
-            На главную
-          </Link>
           <h2 className="title-section catalog__head-title">
             {state?.name || lastPart === "search" ? "Поиск" : "Каталог"}
           </h2>
@@ -48,6 +44,9 @@ const Catalog: FC<Props> = ({ className }) => {
       </div>
 
       <Container>
+        <Link to={"/"} className="breadcrumb">
+          <MoveLeft className="move-left" /> {t("header.goto")}
+        </Link>
         <div className="catalog__content">
           <aside className="catalog__content-aside">
             {nameBottom.map((item, index) => (

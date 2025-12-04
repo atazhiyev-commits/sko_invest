@@ -2,13 +2,13 @@ import { type FC, useCallback } from "react";
 import { Link } from "react-router";
 import useEmblaCarousel from "embla-carousel-react";
 import clsx from "clsx";
+import type { NewsItem } from "@/types/api_news_types";
+
+import BigImg from "@/components/newsCard/big/BigImg";
 
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import BigImg from "../../components/newsCard/BigImg";
 
 import "./carouselEmbla.scss";
-import type { NewsItem } from "@/types/api_news_types";
-import { API_URL } from "@/api/connect";
 
 interface Props {
   newsList: any;
@@ -19,6 +19,7 @@ interface Props {
 const CarouselEmbla: FC<Props> = ({ newsList, countNews, className }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false });
   const sizeIcon = 48;
+
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev();
   }, [emblaApi]);

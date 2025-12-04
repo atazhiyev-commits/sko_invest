@@ -1,6 +1,6 @@
 import clsx from "clsx";
 
-import "./newsCard.scss";
+import "./big.scss";
 
 interface BigCardProps {
   title: string;

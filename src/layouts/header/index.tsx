@@ -2,8 +2,8 @@ import { useEffect } from "react";
 import { useLocation } from "react-router";
 import clsx from "clsx";
 
-import HeaderUp from "./HeaderUp";
-import HeaderDown from "./HeaderDown";
+import HeaderUp from "./HeaderTop/HeaderTop";
+import HeaderDown from "./HeaderBottom";
 import Container from "@/components/container/Container";
 
 import "./header.scss";

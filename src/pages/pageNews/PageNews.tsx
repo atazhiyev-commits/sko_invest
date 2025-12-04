@@ -1,12 +1,12 @@
-import { useEffect, useState, type FC } from "react";
+import { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import { useParams } from "react-router";
 import { getIdNews } from "@/api/connect";
+import i18n from "@/shared/config/i18n/i18n";
 import type { NewsItem } from "@/types/api_news_types";
 import Container from "@/components/container/Container";
 
 import "./pagenews.scss";
-import i18n from "@/shared/config/i18n/i18n";
 
 const PageNews = () => {
   const { id } = useParams();
@@ -14,7 +14,9 @@ const PageNews = () => {
 
   useEffect(() => {
     const connect_api = async () => {
-      const res = await getIdNews(id as string, i18n.language).then((res) => res.data);
+      const res = await getIdNews(id as string, i18n.language).then(
+        (res) => res.data
+      );
       setPageNews(res);
     };
 
@@ -30,10 +32,7 @@ const PageNews = () => {
             <p className="pageNews__header-date">{pageNews.date_news}</p>
           </header>
           <div className="pageNews__image">
-            <img
-              src={pageNews.first_image.url}
-              alt={pageNews.title_news}
-            />
+            <img src={pageNews.first_image.url} alt={pageNews.title_news} />
           </div>
           <div className="markdown-container">
             <ReactMarkdown>{pageNews.description}</ReactMarkdown>
