@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import useGetNews from "@/shared/store/newsCatalog";
+import type { storeType } from "@/types/api_news_types";
 import clsx from "clsx";
 
 import Container from "@/components/container/Container";
@@ -10,7 +11,8 @@ import "./news.scss";
 
 const News = () => {
   const { t } = useTranslation();
-  const { news, fetchNews } = useGetNews();
+  const { news, fetchNews } = useGetNews() as storeType;
+
 
   useEffect(() => {
     fetchNews();

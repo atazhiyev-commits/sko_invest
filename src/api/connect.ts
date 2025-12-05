@@ -10,7 +10,7 @@ const api = axios.create({
 
 export const getNews = async (locale: string) => {
   console.log("api");
-  const res = await api.get(`/muchnews?locale=${locale}&populate=*`);
+  const res = await api.get(`/muchnews?locale=${locale}&populate=*&pagination[page]=${2}&pagination[pageSize]=${9}`);
   return res.data;
 };
 

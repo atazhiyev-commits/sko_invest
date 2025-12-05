@@ -11,3 +11,13 @@ type first_image = {
   id: number;
   url: string;
 };
+
+export interface storeType {
+  news: data;
+  fetchNews: () => void;
+}
+
+type data = {
+  data: NewsItem[];
+  meta: any;
+};
