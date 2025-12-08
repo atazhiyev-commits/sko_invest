@@ -1,5 +1,4 @@
 .PageNewsCard {
-  max-width: 100%;
   overflow: hidden;
 
   .news-image {
@@ -31,9 +30,6 @@
     font-size: 14px;
     font-weight: 500;
 
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
     overflow: hidden;
     line-clamp: 3;
   }

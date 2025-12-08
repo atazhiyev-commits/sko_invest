@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate, useParams } from "react-router";
 import useGetNews from "@/shared/store/newsCatalog";
@@ -24,7 +24,11 @@ const News = () => {
   const activePage = Number(useParams().page);
 
   useEffect(() => {
-    if (activePage < 1) return navigate(`/${lang}/news/1`);
+    if (activePage < 1) {
+      navigate(`/${lang}/news/1`);
+      return;
+    }
+
     const loadData = async () => {
       setIsLoading(true);
       try {
@@ -51,14 +55,14 @@ const News = () => {
                 <h2 className="title-section">{t("PageNews.title")}</h2>
                 <div className="page-news__wrapper">
                   {news.data.map((item: any) => (
-                    <div key={item.documentId}>
+                    <Fragment key={item.documentId}>
                       <PageNewsCard
                         id={item.documentId}
                         title={item.title_news}
                         date={item.date_news}
                         imageSrc={item.first_image.url}
                       />
-                    </div>
+                    </Fragment>
                   ))}
                 </div>
                 <div className="pagination-content">
