@@ -11,7 +11,7 @@ import Header from "@/layouts/header";
 import Footer from "@/layouts/footer";
 import ErrorPage from "@/layouts/error/ErrorPage";
 
-import "normalize.css"
+import "normalize.css";
 import "@/styles/App.scss";
 
 const App = () => {

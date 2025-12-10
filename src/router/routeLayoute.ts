@@ -13,7 +13,7 @@ export const routeList = [
     path: "/:lang/news/:page",
     element: News,
   },
-    {
+  {
     path: "/:lang/news/item/:id",
     element: PageNews,
   },
