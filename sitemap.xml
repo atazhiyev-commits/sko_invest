@@ -2,20 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc> https://atazhiyev-commits.github.io/sko_invest/</loc>
+        <lastmod>10.12.2025</lastmod>
     </url>
     <url>
         <loc> https://atazhiyev-commits.github.io/sko_invest/catalog/investor-guide</loc>
+        <lastmod>10.12.2025</lastmod>
     </url>
     <url>
         <loc>
-             https://atazhiyev-commits.github.io/sko_invest/catalog/investor-guide/business-registration</loc>
+            https://atazhiyev-commits.github.io/sko_invest/catalog/investor-guide/business-registration</loc>
+        <lastmod>10.12.2025</lastmod>
     </url>
     <url>
         <loc>
-             https://atazhiyev-commits.github.io/sko_invest/catalog/investor-guide/business-registration/banks</loc>
+            https://atazhiyev-commits.github.io/sko_invest/catalog/investor-guide/business-registration/banks</loc>
+        <lastmod>10.12.2025</lastmod>
     </url>
     <url>
         <loc>
             https://atazhiyev-commits.github.io/sko_invest/catalog/investor-guide/business-registration/hotels</loc>
+        <lastmod>10.12.2025</lastmod>
     </url>
 </urlset>
